@@ -1,0 +1,97 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Shop API",
+    "version": "1.0",
+    "contact": {
+      "name": "gRPC-Shop Project",
+      "url": "https://github.com/violetaplum/shop-grpc",
+      "email": "violetaplume@gmail.com"
+    }
+  },
+  "tags": [
+    {
+      "name": "ShopService"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "shopAddProductResponse": {
+      "type": "object"
+    },
+    "shopAddStockResponse": {
+      "type": "object"
+    },
+    "shopCreateOrderResponse": {
+      "type": "object"
+    },
+    "shopDeleteProductResponse": {
+      "type": "object"
+    },
+    "shopDeleteStockResponse": {
+      "type": "object"
+    },
+    "shopGetLowStockListResponse": {
+      "type": "object"
+    },
+    "shopGetOrderListResponse": {
+      "type": "object"
+    },
+    "shopGetOrderResponse": {
+      "type": "object"
+    },
+    "shopGetProductListResponse": {
+      "type": "object"
+    },
+    "shopGetProductResponse": {
+      "type": "object"
+    },
+    "shopGetStockResponse": {
+      "type": "object"
+    },
+    "shopUpdateOrderStatusResponse": {
+      "type": "object"
+    },
+    "shopUpdateProductResponse": {
+      "type": "object"
+    }
+  }
+}
