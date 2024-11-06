@@ -1,0 +1,26 @@
+version: v1
+plugins:
+  - plugin: buf.build/protocolbuffers/go:v1.30.0
+    out: public_gen/go
+    opt: paths=source_relative
+  - name: go-grpc
+    out: public_gen/go
+    opt:
+      - paths=source_relative
+      - require_unimplemented_servers=false
+  - name: grpc-gateway
+    out: public_gen/go
+    opt:
+      - paths=source_relative
+      - logtostderr=true
+      - generate_unbound_methods=true
+  - name: openapiv2
+    out: public_gen/swagger
+    opt:
+      - logtostderr=true
+      - json_names_for_fields=false
+  - name: validate
+    out: public_gen/go
+    opt:
+      - paths=source_relative
+      - lang=go

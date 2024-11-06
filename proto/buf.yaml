@@ -1,10 +1,9 @@
-# For details on buf.yaml configuration, visit https://buf.build/docs/configuration/v2/buf-yaml
-version: v2
+version: v1
 name: buf.build/aspyn/shop
 deps:
-  - buf.build/envoyproxy/protoc-gen-validate
-  - buf.build/grpc-ecosystem/grpc-gateway
   - buf.build/googleapis/googleapis
+  - buf.build/grpc-ecosystem/grpc-gateway:v2.18.1
+  - buf.build/envoyproxy/protoc-gen-validate:v1.0.2
 lint:
   rpc_allow_google_protobuf_empty_requests: true
   rpc_allow_google_protobuf_empty_responses: true

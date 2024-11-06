@@ -1,0 +1,82 @@
+syntax = "proto3";
+package shop;
+option go_package = "github.com/aspyn/shop_proto";
+
+import "google/protobuf/timestamp.proto";     // googleapis 필요
+import "google/api/annotations.proto";        // googleapis 필요
+import "google/protobuf/empty.proto";         // googleapis 필요
+import "protoc-gen-openapiv2/options/annotations.proto";  // grpc-gateway 필요
+import "validate/validate.proto";             // protoc-gen-validate 필요
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+    title: "Shop API";
+    version: "1.0";
+    description: "";
+    contact: {
+      name: "gRPC-Shop Project";
+      url: "https://github.com/violetaplum/shop-grpc";
+      email: "violetaplume@gmail.com";
+    };
+  }
+  schemes: [HTTPS, HTTP];
+  consumes: "application/json";
+  produces: "application/json";
+};
+
+service ShopService {
+  rpc AddProduct (AddProductRequest) returns (AddProductResponse) {}
+  rpc GetProductList (GetProductListRequest) returns (GetProductListResponse) {}
+  rpc GetProduct (GetProductRequest) returns (GetProductResponse) {}
+  rpc UpdateProduct (UpdateProductRequest) returns (UpdateProductResponse) {}
+  rpc DeleteProduct (DeleteProductRequest) returns (DeleteProductResponse) {}
+
+  rpc GetStock (GetStockRequest) returns (GetStockResponse) {}
+  rpc AddStock (AddStockRequest) returns (AddStockResponse) {}
+  rpc DeleteStock (DeleteStockRequest) returns (DeleteStockResponse) {}
+  rpc GetLowStockList (GetLowStockListRequest) returns (GetLowStockListResponse) {}
+
+  rpc CreateOrder (CreateOrderRequest) returns (CreateOrderResponse) {}
+  rpc GetOrder (GetOrderRequest) returns (GetOrderResponse) {}
+  rpc GetOrderList (GetOrderListRequest) returns (GetOrderListResponse) {}
+  rpc UpdateOrderStatus (UpdateOrderStatusRequest) returns (UpdateOrderStatusResponse) {}
+
+}
+
+message AddProductRequest {
+
+}
+
+message AddProductResponse {
+
+}
+
+
+message GetProductListRequest {}
+message GetProductListResponse {}
+message GetProductRequest {}
+message GetProductResponse {}
+message UpdateProductRequest {}
+message UpdateProductResponse {}
+message DeleteProductRequest {}
+message DeleteProductResponse {}
+
+
+message GetStockRequest {}
+message GetStockResponse {}
+message AddStockRequest {}
+message AddStockResponse {}
+message DeleteStockRequest {}
+message DeleteStockResponse {}
+message GetLowStockListRequest {}
+message GetLowStockListResponse {}
+
+
+message CreateOrderRequest {}
+message CreateOrderResponse {}
+message GetOrderRequest {}
+message GetOrderResponse {}
+message GetOrderListRequest {}
+message GetOrderListResponse {}
+message UpdateOrderStatusRequest {}
+message UpdateOrderStatusResponse {}
