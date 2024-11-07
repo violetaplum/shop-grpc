@@ -1,4 +1,4 @@
-module shop-grpc
+module github.com/violetaplum/shop-grpc-golang
 
 go 1.23.2
 
