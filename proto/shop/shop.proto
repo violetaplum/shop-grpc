@@ -43,39 +43,123 @@ service ShopService {
 
 }
 
-message AddProductRequest {
-
+message Product {
+  string product_id = 1;
+  string product_name = 2;
+  string product_doc = 3;
+  string created = 4;
+  string modified = 5;
 }
+
+message AddProductRequest {
+  string product_name = 1;
+  string product_doc = 2;
+}
+
 
 message AddProductResponse {
+  Product product = 1;
+}
 
+message GetProductListRequest {
+  string page = 1;
+  int32 page_size = 2;
 }
 
 
-message GetProductListRequest {}
-message GetProductListResponse {}
-message GetProductRequest {}
-message GetProductResponse {}
-message UpdateProductRequest {}
-message UpdateProductResponse {}
-message DeleteProductRequest {}
+message GetProductListResponse {
+  repeated Product list = 1;
+  int32 total_rows = 2;
+}
+message GetProductRequest {
+  string product_name = 1;
+  string product_doc = 2;
+}
+message GetProductResponse {
+  Product product = 1;
+}
+
+
+message UpdateProductRequest {
+  string product_id = 1;
+  string product_name = 2;
+  string product_doc = 3;
+}
+message UpdateProductResponse {
+  Product product = 1;
+}
+message DeleteProductRequest {
+  string product_id  = 1;
+}
 message DeleteProductResponse {}
 
+message Stock {
+  string product_id = 1;
+  string product_name = 2;
+  string product_doc = 3;
+  int32 cnt = 4;
+  string created = 5;
+  string modified = 6;
+}
 
-message GetStockRequest {}
-message GetStockResponse {}
-message AddStockRequest {}
-message AddStockResponse {}
-message DeleteStockRequest {}
+message GetStockRequest {
+  string product_id = 1;
+}
+
+message GetStockResponse {
+  Stock stock = 1;
+}
+
+message AddStockRequest {
+  string product_id = 1;
+}
+
+message AddStockResponse {
+  Stock stock = 1;
+}
+
+message DeleteStockRequest {
+  string product_id = 1;
+}
+
 message DeleteStockResponse {}
-message GetLowStockListRequest {}
-message GetLowStockListResponse {}
+
+message GetLowStockListRequest {
+  int32 page = 1;
+  int32 page_size = 2;
+  string product_id = 3;
+}
+message GetLowStockListResponse {
+  repeated Stock list = 1;
+  int32 total_rows = 2;
+}
+
+message ProductOrder {
+  string product_id = 1;
+  string user_id = 2;
+  int32 order_quantity = 3;
+  int32 order_status = 4;
+  string created = 5;
+  string modified = 6;
+}
 
 
-message CreateOrderRequest {}
-message CreateOrderResponse {}
-message GetOrderRequest {}
-message GetOrderResponse {}
+
+message CreateOrderRequest {
+  string product_id = 1;
+  int32 order_quantity = 2;
+  string user_id = 3;
+}
+message CreateOrderResponse {
+  ProductOrder product_order = 1;
+}
+message GetOrderRequest {
+  string order_id = 1;
+
+}
+message GetOrderResponse {
+  ProductOrder product_order = 1;
+}
 message GetOrderListRequest {}
 message GetOrderListResponse {}
 message UpdateOrderStatusRequest {}
