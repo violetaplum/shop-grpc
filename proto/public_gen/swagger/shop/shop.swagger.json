@@ -55,13 +55,28 @@
       }
     },
     "shopAddProductResponse": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "product": {
+          "$ref": "#/definitions/shopProduct"
+        }
+      }
     },
     "shopAddStockResponse": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "stock": {
+          "$ref": "#/definitions/shopStock"
+        }
+      }
     },
     "shopCreateOrderResponse": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "product_order": {
+          "$ref": "#/definitions/shopUserOrder"
+        }
+      }
     },
     "shopDeleteProductResponse": {
       "type": "object"
@@ -70,28 +85,176 @@
       "type": "object"
     },
     "shopGetLowStockListResponse": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/shopStock"
+          }
+        },
+        "total_rows": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
     },
     "shopGetOrderListResponse": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/shopUserOrder"
+          }
+        },
+        "total_rows": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
     },
     "shopGetOrderResponse": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "product_order": {
+          "$ref": "#/definitions/shopUserOrder"
+        }
+      }
     },
     "shopGetProductListResponse": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/shopProduct"
+          }
+        },
+        "total_rows": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
     },
     "shopGetProductResponse": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "product": {
+          "$ref": "#/definitions/shopProduct"
+        }
+      }
     },
     "shopGetStockResponse": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "stock": {
+          "$ref": "#/definitions/shopStock"
+        }
+      }
+    },
+    "shopOrder": {
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "type": "string"
+        },
+        "order_quantity": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "shopProduct": {
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "type": "string"
+        },
+        "product_name": {
+          "type": "string"
+        },
+        "product_doc": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string"
+        }
+      }
+    },
+    "shopStock": {
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "type": "string"
+        },
+        "product_name": {
+          "type": "string"
+        },
+        "product_doc": {
+          "type": "string"
+        },
+        "cnt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "created": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string"
+        }
+      }
     },
     "shopUpdateOrderStatusResponse": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "product_order": {
+          "$ref": "#/definitions/shopUserOrder"
+        }
+      }
     },
     "shopUpdateProductResponse": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "product": {
+          "$ref": "#/definitions/shopProduct"
+        }
+      }
+    },
+    "shopUserOrder": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string"
+        },
+        "order_id": {
+          "type": "string"
+        },
+        "order_status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/shopOrder"
+          }
+        },
+        "created": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string"
+        }
+      }
     }
   }
 }

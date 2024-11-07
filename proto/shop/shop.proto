@@ -64,6 +64,8 @@ message AddProductResponse {
 message GetProductListRequest {
   string page = 1;
   int32 page_size = 2;
+  string from_date = 3;
+  string to_date = 4;
 }
 
 
@@ -128,39 +130,60 @@ message GetLowStockListRequest {
   int32 page = 1;
   int32 page_size = 2;
   string product_id = 3;
+  string from_date = 4;
+  string to_date = 5;
 }
 message GetLowStockListResponse {
   repeated Stock list = 1;
   int32 total_rows = 2;
 }
 
-message ProductOrder {
-  string product_id = 1;
-  string user_id = 2;
-  int32 order_quantity = 3;
-  int32 order_status = 4;
+message Order {
+  string product_id =1;
+  int32 order_quantity = 2;
+}
+
+
+message CreateOrderRequest {
+  string user_id = 1;
+  repeated Order order = 2;
+}
+
+message UserOrder {
+  string user_id = 1;
+  string order_id = 2;
+  int32 order_status = 3;
+  repeated Order orders = 4;
   string created = 5;
   string modified = 6;
 }
 
-
-
-message CreateOrderRequest {
-  string product_id = 1;
-  int32 order_quantity = 2;
-  string user_id = 3;
-}
 message CreateOrderResponse {
-  ProductOrder product_order = 1;
+  UserOrder product_order = 1;
 }
+
 message GetOrderRequest {
   string order_id = 1;
-
 }
 message GetOrderResponse {
-  ProductOrder product_order = 1;
+  UserOrder product_order = 1;
 }
-message GetOrderListRequest {}
-message GetOrderListResponse {}
-message UpdateOrderStatusRequest {}
-message UpdateOrderStatusResponse {}
+message GetOrderListRequest {
+  string user_id = 1;
+  int32 page = 2;
+  int32 page_size = 3;
+  string from_date = 4;
+  string to_date = 5;
+}
+message GetOrderListResponse {
+  repeated UserOrder list = 1;
+  int32 total_rows = 2;
+}
+message UpdateOrderStatusRequest {
+  string order_id = 1;
+  string user_id = 2;
+  int32 order_status = 3;
+}
+message UpdateOrderStatusResponse {
+  UserOrder product_order = 1;
+}
